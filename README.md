@@ -2,10 +2,11 @@
 
 ##  Business Context
 In the e-commerce logistics network, missing the delivery Service Level Agreement (SLA) directly impacts customer retention and generates high CSAT (Customer Satisfaction) friction. Using the Olist Brazilian E-Commerce dataset (approx. 100k orders), this project executes a technical deep-dive to identify fulfillment bottlenecks, isolate root causes of delays, and quantify the exact business cost of late deliveries.
-
+![Dashboard Preview](https://public.tableau.com/app/profile/qing.lu8336/viz/BrazilE-CommerceDeliveryAnalyticsDashboard/Dashboard1)
 ##  Tech Stack & Methodology
 * **SQL (SQLite in-memory):** Fast macro-level aggregations, logistics funnel extraction, and hub-to-hub route performance tracking.
 * **Python (Pandas):** Strict ETL execution, data governance validation, time-series segmentation, and multi-dimensional Root Cause Analysis (RCA).
+* **Tableau**: Interactive dashboard design for operations managers to monitor the 4-day CSAT tipping point and regional delay hotspots.
 
 ##  Data Pipeline & Execution Steps
 
@@ -38,4 +39,4 @@ Merged logistics performance data with the customer reviews table to translate o
 1. **The Bottleneck is Carrier Transit, Not Sellers:** Seller dispatch times remained stable at 2-3 days year-round. Delays are almost entirely driven by the carrier's inability to scale capacity during peak months (delay rates spiked to 18.9% in Mar 2018).
 2. **High-Risk Artery Identified:** The SP (São Paulo) to RJ (Rio de Janeiro) lane processes the highest volume (9,400+ orders) but suffers a severe 14.85% delay rate, marking it as the primary target for carrier reallocation.
 3. **The 4-Day CSAT Tipping Point:** The cost of a delay is non-linear. Customers tolerate minor 1-3 day delays (25.1% 1-star rate). However, once a delay crosses the 4-day mark, the 1-star rate explodes to 58.5% (peaking at 70%+ for 8+ days).
-4. **Recommendation:** Operations must implement a strict 4-day intervention protocol to intercept aging parcels.
+4. **Recommendation:** Supply chain operations must implement an automated 4-day intervention protocol. Orders approaching the 3-day transit threshold without delivery status should trigger an automated escalation to carrier account managers to intercept the parcel before the CSAT friction escalates to irreparable 1-star reviews.
